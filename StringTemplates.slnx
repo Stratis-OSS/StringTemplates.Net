@@ -9,4 +9,7 @@
     <File Path=".github/CODEOWNERS" />
     <File Path="README.md" />
   </Folder>
+  <Folder Name="/src/">
+    <Project Path="src\StringTemplates\StringTemplates.csproj" Type="Classic C#" />
+  </Folder>
 </Solution>
