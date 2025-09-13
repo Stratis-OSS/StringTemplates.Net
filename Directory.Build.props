@@ -1,0 +1,12 @@
+<Project>
+
+    <PropertyGroup>
+
+        <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <TargetFramework>net9.0</TargetFramework>
+
+    </PropertyGroup>
+
+</Project>
