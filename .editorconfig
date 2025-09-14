@@ -286,9 +286,12 @@ charset = unset
 trim_trailing_whitespace = true
 
 # Project files
-[*.csproj]
+[{*.csproj,*.slnx}]
 
 # Indentation and spacing
 indent_size = 2
 indent_style = space
 tab_width = 2
+
+# New line preferences
+insert_final_newline = false

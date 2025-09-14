@@ -12,4 +12,5 @@
   <Folder Name="/src/">
     <Project Path="src\StringTemplates\StringTemplates.csproj" Type="Classic C#" />
   </Folder>
+  <Folder Name="/src/plugins/" />
 </Solution>
