@@ -15,4 +15,8 @@
     <Using Include="Xunit"/>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\src\StringTemplates\StringTemplates.csproj" />
+  </ItemGroup>
+
 </Project>
