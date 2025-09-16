@@ -17,6 +17,6 @@
   </Folder>
   <Folder Name="/src/plugins/" />
   <Folder Name="/tests/">
-    <Project Path="StringTemplates.UnitTests\StringTemplates.UnitTests.csproj" Type="Classic C#" />
+    <Project Path="tests\StringTemplates.UnitTests\StringTemplates.UnitTests.csproj" Type="Classic C#" />
   </Folder>
 </Solution>
