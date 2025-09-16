@@ -1,4 +1,7 @@
 ﻿<Solution>
+  <Folder Name="/examples/">
+    <Project Path="examples\StringTemplates.Demo\StringTemplates.Demo.csproj" Type="Classic C#" />
+  </Folder>
   <Folder Name="/solution/">
     <File Path=".editorconfig" />
     <File Path="Directory.Build.props" />
@@ -8,5 +11,12 @@
     <File Path=".gitignore" />
     <File Path=".github/CODEOWNERS" />
     <File Path="README.md" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src\StringTemplates\StringTemplates.csproj" Type="Classic C#" />
+  </Folder>
+  <Folder Name="/src/plugins/" />
+  <Folder Name="/tests/">
+    <Project Path="tests\StringTemplates.UnitTests\StringTemplates.UnitTests.csproj" Type="Classic C#" />
   </Folder>
 </Solution>

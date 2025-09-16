@@ -281,11 +281,17 @@ dotnet_diagnostic.CA2327.severity = none
 # IDE0046: Convert to conditional expression
 dotnet_diagnostic.IDE0046.severity = none
 
-csharp_style_expression_bodied_lambdas = unset
-csharp_style_namespace_declarations = file_scoped:warning
+# More
 charset = unset
-end_of_line = unset
-insert_final_newline = unset
-trim_trailing_whitespace = unset
-indent_style = unset
-indent_size = unset
+trim_trailing_whitespace = true
+
+# Project files
+[{*.csproj,*.slnx,Directory.**.props}]
+
+# Indentation and spacing
+indent_size = 2
+indent_style = space
+tab_width = 2
+
+# New line preferences
+insert_final_newline = false

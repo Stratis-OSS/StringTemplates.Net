@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <PackageId>StringTemplates</PackageId>
+    <Title>StringTemplates</Title>
+    <Version>9.0.9</Version>
+
+    <Authors>Stratis-Dermanoutsos</Authors>
+    <Company>Stratis-Dermanoutsos</Company>
+
+    <Copyright>Copyright (c) Stratis Dermanoutsos 2025</Copyright>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+
+    <PackageProjectUrl>https://github.com/Stratis-Dermanoutsos/StringTemplates</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Stratis-Dermanoutsos/StringTemplates</RepositoryUrl>
+
+    <Description>The best way to handle templates and replace placeholders.</Description>
+    <PackageTags>open-source oss csharp dotnet strings templates placeholders</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageReleaseNotes>* First release.
+    * Dictionary plugin.
+    * System plugin.
+    </PackageReleaseNotes>
+
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
+  </ItemGroup>
+
+<ItemGroup>
+  <None Include="../../LICENSE" Pack="true" PackagePath="/"/>
+  <None Include="../../README.md" Pack="true" PackagePath="/"/>
+</ItemGroup>
+</Project>

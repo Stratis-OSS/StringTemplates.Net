@@ -1,6 +1,6 @@
 # StringTemplates.Net
 
-Best way to handle templates and replace placeholders.
+The best way to handle templates and replace placeholders.
 
 ## NuGet Packages
 
