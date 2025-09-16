@@ -1,4 +1,7 @@
 ﻿<Solution>
+  <Folder Name="/examples/">
+    <Project Path="examples\StringTemplates.Demo\StringTemplates.Demo.csproj" Type="Classic C#" />
+  </Folder>
   <Folder Name="/solution/">
     <File Path=".editorconfig" />
     <File Path="Directory.Build.props" />
