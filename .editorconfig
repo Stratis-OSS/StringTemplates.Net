@@ -286,7 +286,7 @@ charset = unset
 trim_trailing_whitespace = true
 
 # Project files
-[{*.csproj,*.slnx}]
+[{*.csproj,*.slnx,Directory.**.props}]
 
 # Indentation and spacing
 indent_size = 2
