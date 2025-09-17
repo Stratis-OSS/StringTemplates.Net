@@ -1,0 +1,18 @@
+### POST 1 request to use system template
+POST https://localhost:7228/system
+Content-Type: application/json
+
+{
+  "template": "The year is \u007B\u007B#System#Year#System#\u007D\u007D."
+}
+###
+
+### POST 2 request to use system template
+POST https://localhost:7228/system
+Content-Type: application/json
+
+{
+  "template": "The time and date now is \u007B\u007B#System#Time.Now#System#\u007D\u007D of \u007B\u007B#System#Day.OfMonth#System#\u007D\u007Dth of \u007B\u007B#System#Month#System#\u007D\u007D \u007B\u007B#System#Year#System#\u007D\u007D."
+}
+###
+###

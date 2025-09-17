@@ -7,7 +7,7 @@ namespace StringTemplates.UnitTests.Services.Plugins;
 public class DictionaryTemplatePluginTests
 {
     [Fact]
-    public void Replaces_Single_Key_In_Sentence()
+    public void Dictionary_Replaces_Single_Key()
     {
         // Arrange
         var dict = new Dictionary<string, object>
@@ -25,7 +25,7 @@ public class DictionaryTemplatePluginTests
     }
 
     [Fact]
-    public void Replaces_Multiple_Keys_In_Paragraph()
+    public void Dictionary_Replaces_Multiple_Keys()
     {
         // Arrange
         var dict = new Dictionary<string, object>
@@ -50,7 +50,7 @@ public class DictionaryTemplatePluginTests
     }
 
     [Fact]
-    public void Replaces_Mixed_Types_And_Repeated_Keys()
+    public void Dictionary_Replaces_Mixed_Types_And_Repeats()
     {
         // Arrange
         var dict = new Dictionary<string, object>
@@ -78,7 +78,7 @@ public class DictionaryTemplatePluginTests
     }
 
     [Fact]
-    public void Leaves_Unknown_Keys_Untouched_While_Replacing_Known_Ones()
+    public void Dictionary_Unknown_Key_Remains()
     {
         // Arrange
         var dict = new Dictionary<string, object>
@@ -101,7 +101,7 @@ public class DictionaryTemplatePluginTests
     }
 
     [Fact]
-    public void Replaces_Values_In_Long_Form_Text()
+    public void Dictionary_Replaces_Values_In_Long_Text()
     {
         // Arrange
         var start = new DateTime(2025, 09, 16, 8, 30, 0);
@@ -128,7 +128,7 @@ public class DictionaryTemplatePluginTests
     }
 
     [Fact]
-    public void Leaves_Template_As_Is_When_Dictionary_Is_Null()
+    public void Dictionary_Leaves_Template_As_Is_When_Model_Is_Null()
     {
         // Arrange
         Dictionary<string, object>? dict = null;

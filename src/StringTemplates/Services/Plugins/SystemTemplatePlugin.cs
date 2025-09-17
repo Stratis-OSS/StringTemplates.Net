@@ -24,6 +24,7 @@ public sealed class SystemTemplatePlugin : ITemplatePlugin
             "DateTime.Now" => DateTime.Now.ToString(CultureInfo.InvariantCulture),
             "DateTime.UtcNow" => DateTime.UtcNow.ToString(CultureInfo.InvariantCulture),
             "Day" => DateTime.Now.DayOfWeek.ToString(),
+            "Day.OfMonth" => DateTime.Now.Day.ToString(),
             "Month" => DateTime.Now.ToString("MMMM", CultureInfo.InvariantCulture),
             "Time.Now" => DateTime.Now.ToString("T", CultureInfo.InvariantCulture),
             "Time.UtcNow" => DateTime.UtcNow.ToString("T", CultureInfo.InvariantCulture),

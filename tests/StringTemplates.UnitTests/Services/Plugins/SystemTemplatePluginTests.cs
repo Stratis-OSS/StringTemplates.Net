@@ -8,7 +8,7 @@ namespace StringTemplates.UnitTests.Services.Plugins;
 public class SystemTemplatePluginTests
 {
     [Fact]
-    public void Replaces_Placeholder_Date_Now()
+    public void System_Date_Now_Replaced()
     {
         // Arrange
         var expected = DateTime.Now.ToString("d", CultureInfo.InvariantCulture);
@@ -23,7 +23,7 @@ public class SystemTemplatePluginTests
     }
 
     [Fact]
-    public void Replaces_Placeholder_Date_UtcNow()
+    public void System_Date_UtcNow_Replaced()
     {
         // Arrange
         var expected = DateTime.UtcNow.ToString("d", CultureInfo.InvariantCulture);
@@ -38,7 +38,7 @@ public class SystemTemplatePluginTests
     }
 
     [Fact]
-    public void Replaces_Placeholder_DateTime_Now()
+    public void System_DateTime_Now_Format_Is_Correct()
     {
         // Arrange
         var template = "[{{#System#DateTime.Now#System#}}]";
@@ -53,7 +53,7 @@ public class SystemTemplatePluginTests
     }
 
     [Fact]
-    public void Replaces_Placeholder_DateTime_UtcNow()
+    public void System_DateTime_UtcNow_Format_Is_Correct()
     {
         // Arrange
         var template = "<{{#System#DateTime.UtcNow#System#}}>";
@@ -68,7 +68,7 @@ public class SystemTemplatePluginTests
     }
 
     [Fact]
-    public void Replaces_Placeholder_Day()
+    public void System_Day_Replaced()
     {
         // Arrange
         var expected = DateTime.Now.DayOfWeek.ToString();
@@ -83,7 +83,7 @@ public class SystemTemplatePluginTests
     }
 
     [Fact]
-    public void Replaces_Placeholder_Month()
+    public void System_Month_Replaced()
     {
         // Arrange
         var expected = DateTime.Now.ToString("MMMM", CultureInfo.InvariantCulture);
@@ -98,7 +98,7 @@ public class SystemTemplatePluginTests
     }
 
     [Fact]
-    public void Replaces_Placeholder_Time_Now()
+    public void System_Time_Now_Format_Is_Correct()
     {
         // Arrange
         var template = "time={{#System#Time.Now#System#}}";
@@ -113,7 +113,7 @@ public class SystemTemplatePluginTests
     }
 
     [Fact]
-    public void Replaces_Placeholder_Time_UtcNow()
+    public void System_Time_UtcNow_Format_Is_Correct()
     {
         // Arrange
         var template = "utc={{#System#Time.UtcNow#System#}}";
@@ -127,9 +127,8 @@ public class SystemTemplatePluginTests
         Assert.True(m.Success, $"Result '{result}' did not match expected time format.");
     }
 
-
     [Fact]
-    public void Replaces_Placeholder_Year()
+    public void System_Year_Replaced()
     {
         // Arrange
         var expectedYear = DateTime.Now.Year.ToString();
@@ -144,7 +143,7 @@ public class SystemTemplatePluginTests
     }
 
     [Fact]
-    public void Leaves_Unknown_Placeholder_Untouched()
+    public void System_Unknown_Placeholder_Remains()
     {
         // Arrange
         var template = "Unknown -> {{#System#Does.Not.Exist#System#}} <- keep it";

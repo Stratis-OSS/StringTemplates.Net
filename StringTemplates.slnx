@@ -12,11 +12,15 @@
     <File Path=".github/CODEOWNERS" />
     <File Path="README.md" />
   </Folder>
+  <Folder Name="/solution/git/workflows/">
+    <File Path=".github/workflows/run_tests.yml" />
+  </Folder>
   <Folder Name="/src/">
     <Project Path="src\StringTemplates\StringTemplates.csproj" Type="Classic C#" />
   </Folder>
   <Folder Name="/src/plugins/" />
   <Folder Name="/tests/">
+    <Project Path="tests\StringTemplates.IntegrationTests\StringTemplates.IntegrationTests.csproj" Type="Classic C#" />
     <Project Path="tests\StringTemplates.UnitTests\StringTemplates.UnitTests.csproj" Type="Classic C#" />
   </Folder>
 </Solution>
