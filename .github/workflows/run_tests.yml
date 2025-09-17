@@ -26,11 +26,14 @@ jobs:
         run: dotnet build --no-restore --configuration Release
 
       - name: Run tests
-        run: dotnet test --no-build --configuration Release --verbosity normal --logger "trx;LogFileName=test_results.trx" --results-directory ./TestResults
+        run: dotnet test --no-build --configuration Release --verbosity normal \
+          --logger "trx;LogFileName=test_results.trx" \
+          --results-directory ./TestResults
 
-      - name: Upload test results
+      # Use GitHub's native test reporting feature
+      - name: Upload test report
         if: always()   # Upload results even if tests fail
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-test-report@v1
         with:
-          name: test-results
+          name: .NET Test Results
           path: ./TestResults
