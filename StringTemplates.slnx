@@ -13,7 +13,7 @@
     <File Path="README.md" />
   </Folder>
   <Folder Name="/solution/git/workflows/">
-    <File Path=".github/workflows/run_tests.yml" />
+    <File Path=".github/workflows/CI.yml" />
   </Folder>
   <Folder Name="/src/">
     <Project Path="src\StringTemplates\StringTemplates.csproj" Type="Classic C#" />

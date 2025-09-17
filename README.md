@@ -1,5 +1,7 @@
 # StringTemplates.Net
 
+[![CI](https://github.com/Stratis-OSS/StringTemplates.Net/workflows/CI/badge.svg)](https://github.com/Stratis-OSS/StringTemplates.Net/actions?query=workflow%3ACI)
+
 The best way to handle templates and replace placeholders.
 
 ## NuGet Packages
