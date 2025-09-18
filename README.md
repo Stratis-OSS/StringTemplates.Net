@@ -6,9 +6,11 @@ The best way to handle templates and replace placeholders.
 
 ## NuGet Packages
 
-| StringTemplates Package                                         | NuGet                                                                                                                   |
-|-----------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
-| [StringTemplates](https://www.nuget.org/packages/StringTemplates) | [![NuGet](http://img.shields.io/nuget/vpre/StringTemplates.svg?label=NuGet)](https://www.nuget.org/packages/StringTemplates/) |
+| StringTemplates Package                                                                       | NuGet                                                                                                                                                     |
+|-----------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [StringTemplates](https://www.nuget.org/packages/StringTemplates)                             | [![NuGet](http://img.shields.io/nuget/vpre/StringTemplates.svg?label=NuGet)](https://www.nuget.org/packages/StringTemplates/)                             |
+| [StringTemplates.Configuration](https://www.nuget.org/packages/StringTemplates.Configuration) | [![NuGet](http://img.shields.io/nuget/vpre/StringTemplates.Configuration.svg?label=NuGet)](https://www.nuget.org/packages/StringTemplates.Configuration/) |
+| [StringTemplates.MimeKit](https://www.nuget.org/packages/StringTemplates.MimeKit)             | [![NuGet](http://img.shields.io/nuget/vpre/StringTemplates.MimeKit.svg?label=NuGet)](https://www.nuget.org/packages/StringTemplates.MimeKit/)             |
 
 ## Documentation
 
