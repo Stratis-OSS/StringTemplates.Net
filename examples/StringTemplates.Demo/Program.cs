@@ -1,11 +1,13 @@
 using Microsoft.AspNetCore.Mvc;
 using StringTemplates.Extensions;
+using StringTemplates.Plugins.Configuration;
 using StringTemplates.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddStringTemplates();
+builder.Services.AddStringTemplates(options => options.AddPlugins(opts =>
+        opts.AddPluginSingleton<ConfigurationTemplatePlugin>()));
 
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
@@ -19,7 +21,7 @@ if (app.Environment.IsDevelopment())
 }
 
 // Map endpoints
-app.MapPost("system", (
+app.MapPost("general", (
         [FromBody] SystemRequest request,
         [FromServices] ITemplateService templateService) =>
     Results.Ok(templateService.ReplacePlaceholders(request.Template)));

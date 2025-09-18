@@ -1,5 +1,5 @@
-### POST 1 request to use system template
-POST https://localhost:7228/system
+### POST 1 request to use generic plugins
+POST https://localhost:7228/general
 Content-Type: application/json
 
 {
@@ -7,8 +7,8 @@ Content-Type: application/json
 }
 ###
 
-### POST 2 request to use system template
-POST https://localhost:7228/system
+### POST 2 request to use generic plugins
+POST https://localhost:7228/general
 Content-Type: application/json
 
 {

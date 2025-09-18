@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <PackageId>StringTemplates.Configuration</PackageId>
+    <Title>StringTemplates.Configuration</Title>
+    <Version>9.0.9</Version>
+
+    <Authors>Stratis-Dermanoutsos</Authors>
+    <Company>Stratis-Dermanoutsos</Company>
+
+    <Copyright>Copyright (c) Stratis Dermanoutsos 2025</Copyright>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+
+    <PackageProjectUrl>https://github.com/Stratis-OSS/StringTemplates.Net</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Stratis-OSS/StringTemplates.Net</RepositoryUrl>
+
+    <Description>The best way to handle templates and replace placeholders using IConfiguration.</Description>
+    <PackageTags>open-source oss csharp dotnet strings templates placeholders environment config</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageReleaseNotes>* First release.
+    * IConfiguration plugin.
+    </PackageReleaseNotes>
+
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="../../../LICENSE" Pack="true" PackagePath="/"/>
+    <None Include="../../../README.md" Pack="true" PackagePath="/"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" />
+    <PackageReference Include="StringTemplates"/>
+  </ItemGroup>
+
+</Project>
