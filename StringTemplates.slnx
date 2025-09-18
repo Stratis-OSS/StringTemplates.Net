@@ -4,6 +4,7 @@
   </Folder>
   <Folder Name="/solution/">
     <File Path=".editorconfig" />
+    <File Path="build-core.sh" />
     <File Path="Directory.Build.props" />
     <File Path="Directory.Packages.props" />
   </Folder>
