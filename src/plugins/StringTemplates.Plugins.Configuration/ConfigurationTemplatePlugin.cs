@@ -19,6 +19,6 @@ public sealed class ConfigurationTemplatePlugin(IConfiguration configuration) : 
 
     public string? GetValueOrDefault(string placeholder)
     {
-        return configuration[placeholder];
+        return configuration[placeholder.Replace(".", ":")];
     }
 }
