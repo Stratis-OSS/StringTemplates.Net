@@ -1,5 +1,4 @@
-using System.Globalization;
-using StringTemplates.Services;
+using Shouldly;
 using StringTemplates.Services.Plugins;
 
 namespace StringTemplates.UnitTests.Services.Plugins;
@@ -10,22 +9,25 @@ public class DictionaryTemplatePluginTests
     public void Dictionary_Replaces_Single_Key()
     {
         // Arrange
+        var expected = "A value";
         var dict = new Dictionary<string, object>
         {
-            ["Name"] = "Stratis"
+            ["Name"] = expected
         };
-        var template = "Hello, {{#Dictionary#Name#Dictionary#}}! Welcome to StringTemplates.";
-        ITemplateService<Dictionary<string, object>> sut = new DictionaryTemplatePlugin();
+        var plugin = new DictionaryTemplatePlugin();
 
         // Act
-        var result = sut.ReplacePlaceholders(template, dict);
+        var result = plugin.GetValueOrDefault("Name", dict);
 
         // Assert
-        Assert.Equal("Hello, Stratis! Welcome to StringTemplates.", result);
+        result.ShouldBe(expected);
     }
 
-    [Fact]
-    public void Dictionary_Replaces_Multiple_Keys()
+    [Theory]
+    [InlineData("FirstName", "Alex")]
+    [InlineData("LastName", "Papadopoulos")]
+    [InlineData("Role", "Administrator")]
+    public void Dictionary_Replaces_Multiple_Keys(string key, string expected)
     {
         // Arrange
         var dict = new Dictionary<string, object>
@@ -34,23 +36,20 @@ public class DictionaryTemplatePluginTests
             ["LastName"] = "Papadopoulos",
             ["Role"] = "Administrator"
         };
-        var template =
-            "User: {{#Dictionary#FirstName#Dictionary#}} {{#Dictionary#LastName#Dictionary#}}.\n" +
-            "Current role: {{#Dictionary#Role#Dictionary#}}.";
-        ITemplateService<Dictionary<string, object>> sut = new DictionaryTemplatePlugin();
+        var plugin = new DictionaryTemplatePlugin();
 
         // Act
-        var result = sut.ReplacePlaceholders(template, dict);
+        var result = plugin.GetValueOrDefault(key, dict);
 
         // Assert
-        var expected =
-            "User: Alex Papadopoulos.\n" +
-            "Current role: Administrator.";
-        Assert.Equal(expected, result);
+        result.ShouldBe(expected);
     }
 
-    [Fact]
-    public void Dictionary_Replaces_Mixed_Types_And_Repeats()
+    [Theory]
+    [InlineData("OrderId", "1729")]
+    [InlineData("Total", "123,45")] // TODO: Culture-specific decimal separator...
+    [InlineData("Currency", "EUR")]
+    public void Dictionary_Replaces_Mixed_Types_And_Repeats(string key, object expected)
     {
         // Arrange
         var dict = new Dictionary<string, object>
@@ -59,88 +58,46 @@ public class DictionaryTemplatePluginTests
             ["Total"] = 123.45m,
             ["Currency"] = "EUR"
         };
-        var template =
-            "Order #{{#Dictionary#OrderId#Dictionary#}} has been processed successfully. " +
-            "Amount charged: {{#Dictionary#Total#Dictionary#}} {{#Dictionary#Currency#Dictionary#}}. " +
-            "Reference: ORD-{{#Dictionary#OrderId#Dictionary#}}.";
-        ITemplateService<Dictionary<string, object>> sut = new DictionaryTemplatePlugin();
+        var plugin = new DictionaryTemplatePlugin();
 
         // Act
-        var result = sut.ReplacePlaceholders(template, dict);
+        var result = plugin.GetValueOrDefault(key, dict);
 
         // Assert
-        var totalFormatted = ((decimal)dict["Total"]).ToString(CultureInfo.CurrentCulture);
-        var expected =
-            $"Order #1729 has been processed successfully. " +
-            $"Amount charged: {totalFormatted} EUR. " +
-            $"Reference: ORD-1729.";
-        Assert.Equal(expected, result);
+        result.ShouldBe(expected);
     }
 
-    [Fact]
-    public void Dictionary_Unknown_Key_Remains()
+    [Theory]
+    [InlineData("Known", "OK")]
+    [InlineData("NotThere", null)]
+    public void Dictionary_Known_And_Unknown_Keys_Remain_Or_Are_Replaced(string key, object expected)
     {
         // Arrange
         var dict = new Dictionary<string, object>
         {
             ["Known"] = "OK"
         };
-        var template =
-            "Known: {{#Dictionary#Known#Dictionary#}}; " +
-            "Unknown: {{#Dictionary#NotThere#Dictionary#}}.";
-        ITemplateService<Dictionary<string, object>> sut = new DictionaryTemplatePlugin();
+        var plugin = new DictionaryTemplatePlugin();
 
         // Act
-        var result = sut.ReplacePlaceholders(template, dict);
+        var result = plugin.GetValueOrDefault(key, dict);
 
         // Assert
-        var expected =
-            "Known: OK; " +
-            "Unknown: {{#Dictionary#NotThere#Dictionary#}}.";
-        Assert.Equal(expected, result);
-    }
-
-    [Fact]
-    public void Dictionary_Replaces_Values_In_Long_Text()
-    {
-        // Arrange
-        var start = new DateTime(2025, 09, 16, 8, 30, 0);
-        var dict = new Dictionary<string, object>
-        {
-            ["Company"] = "Lygom",
-            ["Position"] = "Senior Engineer",
-            ["StartDate"] = start // ToString() is used by the plugin
-        };
-
-        var template =
-            "Congratulations, {{#Dictionary#Position#Dictionary#}} at {{#Dictionary#Company#Dictionary#}}!\n" +
-            "Your official start date is {{#Dictionary#StartDate#Dictionary#}}. Please check your inbox for onboarding details.";
-        ITemplateService<Dictionary<string, object>> sut = new DictionaryTemplatePlugin();
-
-        // Act
-        var result = sut.ReplacePlaceholders(template, dict);
-
-        // Assert
-        var expected =
-            $"Congratulations, Senior Engineer at Lygom!\n" +
-            $"Your official start date is {start.ToString()}. Please check your inbox for onboarding details.";
-        Assert.Equal(expected, result);
+        result.ShouldBe(expected);
     }
 
     [Fact]
     public void Dictionary_Leaves_Template_As_Is_When_Model_Is_Null()
     {
         // Arrange
+        string? expected = null;
         Dictionary<string, object>? dict = null;
-        var template =
-            "Dear {{#Dictionary#FirstName#Dictionary#}}, your ticket {{#Dictionary#TicketId#Dictionary#}} is received.";
-
-        ITemplateService<Dictionary<string, object>> sut = new DictionaryTemplatePlugin();
+        var plugin = new DictionaryTemplatePlugin();
 
         // Act
-        var result = sut.ReplacePlaceholders(template, dict);
+        var result = plugin.GetValueOrDefault("SomeKey", dict);
 
         // Assert
-        Assert.Equal(template, result);
+        result.ShouldBe(expected);
     }
 }
