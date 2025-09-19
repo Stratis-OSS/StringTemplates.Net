@@ -1,6 +1,7 @@
 using System.Net.Http.Json;
 
-namespace StringTemplates.IntegrationTests.Services.Abstractions;
+// ReSharper disable once CheckNamespace
+namespace StringTemplates.IntegrationTests.Common;
 
 public abstract class ApiTests(ApiFactory factory)
 {

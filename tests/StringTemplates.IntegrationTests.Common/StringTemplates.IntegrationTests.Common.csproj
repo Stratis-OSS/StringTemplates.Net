@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\examples\StringTemplates.Demo\StringTemplates.Demo.csproj" />
+      <ProjectReference Include="..\..\src\StringTemplates\StringTemplates.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Services\" />
+    </ItemGroup>
+
+</Project>

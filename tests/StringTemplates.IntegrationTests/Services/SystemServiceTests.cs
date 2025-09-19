@@ -1,6 +1,6 @@
 using System.Globalization;
 using Shouldly;
-using StringTemplates.IntegrationTests.Services.Abstractions;
+using StringTemplates.IntegrationTests.Common;
 
 namespace StringTemplates.IntegrationTests.Services;
 

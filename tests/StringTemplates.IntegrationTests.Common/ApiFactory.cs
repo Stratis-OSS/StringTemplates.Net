@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc.Testing;
 
-namespace StringTemplates.IntegrationTests;
+namespace StringTemplates.IntegrationTests.Common;
 
 public class ApiFactory : WebApplicationFactory<Program>
 {
