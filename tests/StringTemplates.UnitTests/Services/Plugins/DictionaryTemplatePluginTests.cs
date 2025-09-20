@@ -49,7 +49,7 @@ public class DictionaryTemplatePluginTests
     [InlineData("OrderId", "1729")]
     [InlineData("Total", "123,45")] // TODO: Culture-specific decimal separator...
     [InlineData("Currency", "EUR")]
-    public void Dictionary_Replaces_Mixed_Types_And_Repeats(string key, object expected)
+    public void Dictionary_Replaces_Mixed_Types_And_Repeats(string key, string expected)
     {
         // Arrange
         var dict = new Dictionary<string, object>
@@ -70,7 +70,7 @@ public class DictionaryTemplatePluginTests
     [Theory]
     [InlineData("Known", "OK")]
     [InlineData("NotThere", null)]
-    public void Dictionary_Known_And_Unknown_Keys_Remain_Or_Are_Replaced(string key, object expected)
+    public void Dictionary_Known_And_Unknown_Keys_Remain_Or_Are_Replaced(string key, string? expected)
     {
         // Arrange
         var dict = new Dictionary<string, object>
