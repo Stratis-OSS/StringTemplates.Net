@@ -1,5 +1,5 @@
-### POST 1 request to use system template
-POST https://localhost:7228/system
+### POST 1 request to use generic plugins
+POST https://localhost:7228/general
 Content-Type: application/json
 
 {
@@ -7,12 +7,21 @@ Content-Type: application/json
 }
 ###
 
-### POST 2 request to use system template
-POST https://localhost:7228/system
+### POST 2 request to use generic plugins
+POST https://localhost:7228/general
 Content-Type: application/json
 
 {
   "template": "The time and date now is \u007B\u007B#System#Time.Now#System#\u007D\u007D of \u007B\u007B#System#Day.OfMonth#System#\u007D\u007Dth of \u007B\u007B#System#Month#System#\u007D\u007D \u007B\u007B#System#Year#System#\u007D\u007D."
+}
+###
+
+### POST 3 request to use generic plugins
+POST https://localhost:7228/general
+Content-Type: application/json
+
+{
+  "template": "This project was created in \u007B\u007B#System#Year#System#\u007D\u007D and the database used is '\u007B\u007B#Configuration#ConnectionStrings.DefaultConnection#Configuration#\u007D\u007D'."
 }
 ###
 ###

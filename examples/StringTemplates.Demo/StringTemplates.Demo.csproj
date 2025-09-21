@@ -5,6 +5,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\src\plugins\StringTemplates.Plugins.Configuration\StringTemplates.Plugins.Configuration.csproj" />
     <ProjectReference Include="..\..\src\StringTemplates\StringTemplates.csproj" />
   </ItemGroup>
 

@@ -1,7 +1,8 @@
-using System.Globalization;
-using System.Text.RegularExpressions;
+using Shouldly;
 using StringTemplates.Services;
 using StringTemplates.Services.Plugins;
+using System.Globalization;
+using System.Text.RegularExpressions;
 
 namespace StringTemplates.UnitTests.Services.Plugins;
 
@@ -12,14 +13,13 @@ public class SystemTemplatePluginTests
     {
         // Arrange
         var expected = DateTime.Now.ToString("d", CultureInfo.InvariantCulture);
-        var template = "Today is {{#System#Date.Now#System#}}.";
-        ITemplateService sut = new SystemTemplatePlugin();
+        var plugin = new SystemTemplatePlugin();
 
         // Act
-        var result = sut.ReplacePlaceholders(template);
+        var result = plugin.GetValueOrDefault("Date.Now");
 
         // Assert
-        Assert.Equal($"Today is {expected}.", result);
+        result.ShouldBe(expected);
     }
 
     [Fact]
@@ -27,44 +27,43 @@ public class SystemTemplatePluginTests
     {
         // Arrange
         var expected = DateTime.UtcNow.ToString("d", CultureInfo.InvariantCulture);
-        var template = "UTC date: {{#System#Date.UtcNow#System#}}";
-        ITemplateService sut = new SystemTemplatePlugin();
+        var plugin = new SystemTemplatePlugin();
 
         // Act
-        var result = sut.ReplacePlaceholders(template);
+        var result = plugin.GetValueOrDefault("Date.UtcNow");
 
         // Assert
-        Assert.Equal($"UTC date: {expected}", result);
+        result.ShouldBe(expected);
     }
 
     [Fact]
     public void System_DateTime_Now_Format_Is_Correct()
     {
         // Arrange
-        var template = "[{{#System#DateTime.Now#System#}}]";
-        ITemplateService sut = new SystemTemplatePlugin();
+        const string expected = @"^\d{2}/\d{2}/\d{4} \d{2}:\d{2}:\d{2}$";
+        var plugin = new SystemTemplatePlugin();
 
         // Act
-        var result = sut.ReplacePlaceholders(template);
+        var value = plugin.GetValueOrDefault("DateTime.Now");
+        var result = Regex.Match(value ?? string.Empty, expected).Success;
 
         // Assert
-        var m = Regex.Match(result, @"^\[\d{2}/\d{2}/\d{4} \d{2}:\d{2}:\d{2}\]$");
-        Assert.True(m.Success, $"Result '{result}' did not match expected DateTime format.");
+        result.ShouldBe(true);
     }
 
     [Fact]
     public void System_DateTime_UtcNow_Format_Is_Correct()
     {
         // Arrange
-        var template = "<{{#System#DateTime.UtcNow#System#}}>";
-        ITemplateService sut = new SystemTemplatePlugin();
+        const string expected = @"^\d{2}/\d{2}/\d{4} \d{2}:\d{2}:\d{2}$";
+        var plugin = new SystemTemplatePlugin();
 
         // Act
-        var result = sut.ReplacePlaceholders(template);
+        var value = plugin.GetValueOrDefault("DateTime.UtcNow");
+        var result = Regex.Match(value ?? string.Empty, expected).Success;
 
         // Assert
-        var m = Regex.Match(result, @"^<\d{2}/\d{2}/\d{4} \d{2}:\d{2}:\d{2}>$");
-        Assert.True(m.Success, $"Result '{result}' did not match expected DateTime format.");
+        result.ShouldBe<bool>(true);
     }
 
     [Fact]
@@ -72,14 +71,13 @@ public class SystemTemplatePluginTests
     {
         // Arrange
         var expected = DateTime.Now.DayOfWeek.ToString();
-        var template = "Happy {{#System#Day#System#}}!";
-        ITemplateService sut = new SystemTemplatePlugin();
+        var plugin = new SystemTemplatePlugin();
 
         // Act
-        var result = sut.ReplacePlaceholders(template);
+        var result = plugin.GetValueOrDefault("Day");
 
         // Assert
-        Assert.Equal($"Happy {expected}!", result);
+        result.ShouldBe(expected);
     }
 
     [Fact]
@@ -87,72 +85,70 @@ public class SystemTemplatePluginTests
     {
         // Arrange
         var expected = DateTime.Now.ToString("MMMM", CultureInfo.InvariantCulture);
-        var template = "It is {{#System#Month#System#}} now.";
-        ITemplateService sut = new SystemTemplatePlugin();
+        var plugin = new SystemTemplatePlugin();
 
         // Act
-        var result = sut.ReplacePlaceholders(template);
+        var result = plugin.GetValueOrDefault("Month");
 
         // Assert
-        Assert.Equal($"It is {expected} now.", result);
+        result.ShouldBe(expected);
     }
 
     [Fact]
     public void System_Time_Now_Format_Is_Correct()
     {
         // Arrange
-        var template = "time={{#System#Time.Now#System#}}";
-        ITemplateService sut = new SystemTemplatePlugin();
+        const string expected = @"^\d{2}:\d{2}:\d{2}$";
+        var plugin = new SystemTemplatePlugin();
 
         // Act
-        var result = sut.ReplacePlaceholders(template);
+        var value = plugin.GetValueOrDefault("Time.Now");
+        var result = Regex.Match(value ?? string.Empty, expected).Success;
 
         // Assert
-        var m = Regex.Match(result, @"^time=\d{2}:\d{2}:\d{2}$");
-        Assert.True(m.Success, $"Result '{result}' did not match expected time format.");
+        result.ShouldBe(true);
     }
 
     [Fact]
     public void System_Time_UtcNow_Format_Is_Correct()
     {
         // Arrange
-        var template = "utc={{#System#Time.UtcNow#System#}}";
-        ITemplateService sut = new SystemTemplatePlugin();
+        const string expected = @"^\d{2}:\d{2}:\d{2}$";
+        var plugin = new SystemTemplatePlugin();
 
         // Act
-        var result = sut.ReplacePlaceholders(template);
+        var value = plugin.GetValueOrDefault("Time.UtcNow");
+        var result = Regex.Match(value ?? string.Empty, expected).Success;
 
         // Assert
-        var m = Regex.Match(result, @"^utc=\d{2}:\d{2}:\d{2}$");
-        Assert.True(m.Success, $"Result '{result}' did not match expected time format.");
+        result.ShouldBe(true);
     }
 
     [Fact]
     public void System_Year_Replaced()
     {
         // Arrange
-        var expectedYear = DateTime.Now.Year.ToString();
-        var template = "The year is {{#System#Year#System#}} — stay focused.";
-        ITemplateService sut = new SystemTemplatePlugin();
+        var expected = DateTime.Now.Year.ToString();
+        var plugin = new SystemTemplatePlugin();
 
         // Act
-        var result = sut.ReplacePlaceholders(template);
+        var result = plugin.GetValueOrDefault("Year");
 
         // Assert
-        Assert.Equal($"The year is {expectedYear} — stay focused.", result);
+        result.ShouldBe(expected);
     }
 
     [Fact]
-    public void System_Unknown_Placeholder_Remains()
+    public void GetValueOrDefault_ReturnsNull_WhenKeyDoesNotExist()
     {
         // Arrange
-        var template = "Unknown -> {{#System#Does.Not.Exist#System#}} <- keep it";
-        ITemplateService sut = new SystemTemplatePlugin();
+        string? expected = null;
+        var plugin = new SystemTemplatePlugin();
 
         // Act
-        var result = sut.ReplacePlaceholders(template);
+        var result = plugin.GetValueOrDefault("Does.Not.Exist");
 
         // Assert
-        Assert.Equal(template, result);
+        result.ShouldBe(expected);
     }
 }

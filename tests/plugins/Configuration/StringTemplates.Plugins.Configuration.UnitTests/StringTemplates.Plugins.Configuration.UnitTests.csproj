@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="coverlet.collector"/>
+    <PackageReference Include="Microsoft.Extensions.Configuration" />
     <PackageReference Include="Microsoft.NET.Test.Sdk"/>
     <PackageReference Include="Shouldly" />
     <PackageReference Include="xunit"/>
@@ -17,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\StringTemplates\StringTemplates.csproj" />
+    <ProjectReference Include="..\..\..\..\src\plugins\StringTemplates.Plugins.Configuration\StringTemplates.Plugins.Configuration.csproj" />
   </ItemGroup>
 
 </Project>

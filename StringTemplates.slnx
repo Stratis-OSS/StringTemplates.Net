@@ -19,9 +19,16 @@
   <Folder Name="/src/">
     <Project Path="src\StringTemplates\StringTemplates.csproj" Type="Classic C#" />
   </Folder>
-  <Folder Name="/src/plugins/" />
+  <Folder Name="/src/plugins/">
+    <Project Path="src\plugins\StringTemplates.Plugins.Configuration\StringTemplates.Plugins.Configuration.csproj" Type="Classic C#" />
+  </Folder>
   <Folder Name="/tests/">
+    <Project Path="tests\StringTemplates.IntegrationTests.Common\StringTemplates.IntegrationTests.Common.csproj" Type="Classic C#" />
     <Project Path="tests\StringTemplates.IntegrationTests\StringTemplates.IntegrationTests.csproj" Type="Classic C#" />
     <Project Path="tests\StringTemplates.UnitTests\StringTemplates.UnitTests.csproj" Type="Classic C#" />
+  </Folder>
+  <Folder Name="/tests/plugins/" />
+  <Folder Name="/tests/plugins/Configuration/">
+    <Project Path="tests\plugins\Configuration\StringTemplates.Plugins.Configuration.UnitTests\StringTemplates.Plugins.Configuration.UnitTests.csproj" Type="Classic C#" />
   </Folder>
 </Solution>
