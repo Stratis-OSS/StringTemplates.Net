@@ -1,3 +1,4 @@
+using System.Globalization;
 using Shouldly;
 using StringTemplates.Services.Plugins;
 
@@ -47,11 +48,14 @@ public class DictionaryTemplatePluginTests
 
     [Theory]
     [InlineData("OrderId", "1729")]
-    [InlineData("Total", "123,45")] // TODO: Culture-specific decimal separator...
+    [InlineData("Total", "123.45")]
     [InlineData("Currency", "EUR")]
     public void Dictionary_Replaces_Mixed_Types_And_Repeats(string key, string expected)
     {
         // Arrange
+        var culture = CultureInfo.InvariantCulture;
+        CultureInfo.CurrentCulture = culture;
+        CultureInfo.CurrentUICulture = culture;
         var dict = new Dictionary<string, object>
         {
             ["OrderId"] = 1729,
