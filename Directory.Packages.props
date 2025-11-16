@@ -19,7 +19,7 @@
     <!-- Shouldly -->
     <PackageVersion Include="Shouldly" Version="4.3.0" />
     <!-- StringTemplates -->
-    <PackageVersion Include="StringTemplates" Version="9.0.11" />
+    <PackageVersion Include="StringTemplates" Version="10.0.0" />
     <!-- xUnit -->
     <PackageVersion Include="xunit" Version="2.9.3" />
     <PackageVersion Include="xunit.runner.visualstudio" Version="3.1.5" />
