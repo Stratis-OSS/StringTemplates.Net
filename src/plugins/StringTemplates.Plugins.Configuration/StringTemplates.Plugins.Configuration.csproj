@@ -3,10 +3,10 @@
   <PropertyGroup>
     <PackageId>StringTemplates.Configuration</PackageId>
     <Title>StringTemplates.Configuration</Title>
-    <Version>9.0.9</Version>
+    <Version>9.0.11</Version>
 
     <Authors>Stratis-Dermanoutsos</Authors>
-    <Company>Stratis-Dermanoutsos</Company>
+    <Company>Stratis-OSS</Company>
 
     <Copyright>Copyright © Stratis Dermanoutsos 2025</Copyright>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
@@ -17,8 +17,7 @@
     <Description>The best way to handle templates and replace placeholders using IConfiguration.</Description>
     <PackageTags>open-source oss csharp dotnet strings templates placeholders environment config</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageReleaseNotes>* First release.
-    * IConfiguration plugin.
+    <PackageReleaseNotes>* Updated dependencies to latest versions.
     </PackageReleaseNotes>
 
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
