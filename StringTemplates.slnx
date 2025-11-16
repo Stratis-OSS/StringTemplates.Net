@@ -1,10 +1,11 @@
 ﻿<Solution>
   <Folder Name="/examples/">
-    <Project Path="examples\StringTemplates.Demo\StringTemplates.Demo.csproj" Type="Classic C#" />
+    <Project Path="examples\StringTemplates.Demo\StringTemplates.Demo.csproj" Type="C#" />
   </Folder>
   <Folder Name="/solution/">
     <File Path=".editorconfig" />
     <File Path="build-core.sh" />
+    <File Path="build-plugin.sh" />
     <File Path="Directory.Build.props" />
     <File Path="Directory.Packages.props" />
   </Folder>
@@ -17,18 +18,18 @@
     <File Path=".github/workflows/CI.yml" />
   </Folder>
   <Folder Name="/src/">
-    <Project Path="src\StringTemplates\StringTemplates.csproj" Type="Classic C#" />
+    <Project Path="src\StringTemplates\StringTemplates.csproj" Type="C#" />
   </Folder>
   <Folder Name="/src/plugins/">
-    <Project Path="src\plugins\StringTemplates.Plugins.Configuration\StringTemplates.Plugins.Configuration.csproj" Type="Classic C#" />
+    <Project Path="src\plugins\StringTemplates.Plugins.Configuration\StringTemplates.Plugins.Configuration.csproj" Type="C#" />
   </Folder>
   <Folder Name="/tests/">
-    <Project Path="tests\StringTemplates.IntegrationTests.Common\StringTemplates.IntegrationTests.Common.csproj" Type="Classic C#" />
-    <Project Path="tests\StringTemplates.IntegrationTests\StringTemplates.IntegrationTests.csproj" Type="Classic C#" />
-    <Project Path="tests\StringTemplates.UnitTests\StringTemplates.UnitTests.csproj" Type="Classic C#" />
+    <Project Path="tests\StringTemplates.IntegrationTests.Common\StringTemplates.IntegrationTests.Common.csproj" Type="C#" />
+    <Project Path="tests\StringTemplates.IntegrationTests\StringTemplates.IntegrationTests.csproj" Type="C#" />
+    <Project Path="tests\StringTemplates.UnitTests\StringTemplates.UnitTests.csproj" Type="C#" />
   </Folder>
   <Folder Name="/tests/plugins/" />
   <Folder Name="/tests/plugins/Configuration/">
-    <Project Path="tests\plugins\Configuration\StringTemplates.Plugins.Configuration.UnitTests\StringTemplates.Plugins.Configuration.UnitTests.csproj" Type="Classic C#" />
+    <Project Path="tests\plugins\Configuration\StringTemplates.Plugins.Configuration.UnitTests\StringTemplates.Plugins.Configuration.UnitTests.csproj" Type="C#" />
   </Folder>
 </Solution>
