@@ -1,12 +1,14 @@
 using Microsoft.AspNetCore.Mvc;
+using MimeKit;
 using StringTemplates;
 using StringTemplates.Plugins;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddStringTemplates(options => options.AddPlugins(opts =>
-    opts.AddPluginSingleton<ConfigurationTemplatePlugin>()));
+builder.Services.AddStringTemplates(options => options.AddPlugins(opts => opts
+    .AddPluginSingleton<ConfigurationTemplatePlugin>()
+    .AddPluginSingleton<MimeMessageTemplatePlugin, MimeMessage>()));
 
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
@@ -28,6 +30,10 @@ app.MapPost("dictionary", (
         [FromBody] DictionaryRequest request,
         [FromServices] ITemplateService<Dictionary<string, object>> templateService) =>
     Results.Ok(templateService.ReplacePlaceholders(request.Template, request.Model)));
+app.MapPost("mailkit", (
+        [FromBody] MailKitRequest request,
+        [FromServices] ITemplateService<MimeMessage> templateService) =>
+    Results.Ok(templateService.ReplacePlaceholders(request.Template, request.Message.ToMimeMessage())));
 
 app.UseHttpsRedirection();
 
@@ -38,3 +44,38 @@ public partial class Program;
 
 internal record SystemRequest(string Template);
 internal record DictionaryRequest(string Template, Dictionary<string, object> Model);
+internal record MailKitRequest(string Template, MailKitMessage Message);
+internal record MailKitAddress(string Name, string Address);
+internal record MailKitMessage(
+    string? Subject,
+    MailKitAddress[]? From,
+    MailKitAddress[]? To,
+    MailKitAddress[]? Cc,
+    MailKitAddress[]? Bcc)
+{
+    public MimeMessage ToMimeMessage()
+    {
+        var message = new MimeMessage();
+        if (Subject is not null)
+        {
+            message.Subject = Subject;
+        }
+        foreach (var address in From ?? [])
+        {
+            message.From.Add(new MailboxAddress(address.Name, address.Address));
+        }
+        foreach (var address in To ?? [])
+        {
+            message.To.Add(new MailboxAddress(address.Name, address.Address));
+        }
+        foreach (var address in Cc ?? [])
+        {
+            message.Cc.Add(new MailboxAddress(address.Name, address.Address));
+        }
+        foreach (var address in Bcc ?? [])
+        {
+            message.Bcc.Add(new MailboxAddress(address.Name, address.Address));
+        }
+        return message;
+    }
+}

@@ -24,4 +24,48 @@ Content-Type: application/json
   "template": "This project was created in \u007B\u007B#System#Year#System#\u007D\u007D and the database used is '\u007B\u007B#Configuration#ConnectionStrings.DefaultConnection#Configuration#\u007D\u007D'."
 }
 ###
+
+### POST 1 request to use the MailKit plugin (subject + first recipient)
+POST https://localhost:7228/mailkit
+Content-Type: application/json
+
+{
+  "template": "Hi \u007B\u007B#MimeMessage#To.First.Name#MimeMessage#\u007D\u007D, your message titled '\u007B\u007B#MimeMessage#Subject#MimeMessage#\u007D\u007D' has been received.",
+  "message": {
+    "subject": "Welcome aboard",
+    "from": [ { "name": "Acme Notifications", "address": "noreply@acme.test" } ],
+    "to":   [ { "name": "Jane Doe",            "address": "jane.doe@example.com" } ]
+  }
+}
+###
+
+### POST 2 request to use the MailKit plugin (counts + joined names)
+POST https://localhost:7228/mailkit
+Content-Type: application/json
+
+{
+  "template": "From \u007B\u007B#MimeMessage#From.First.Name#MimeMessage#\u007D\u007D to \u007B\u007B#MimeMessage#To.Count#MimeMessage#\u007D\u007D recipients (\u007B\u007B#MimeMessage#To.Names#MimeMessage#\u007D\u007D), cc \u007B\u007B#MimeMessage#Cc.Count#MimeMessage#\u007D\u007D.",
+  "message": {
+    "subject": "Team sync",
+    "from": [ { "name": "Alice",   "address": "alice@example.com" } ],
+    "to":   [ { "name": "Bob",     "address": "bob@example.com"   },
+              { "name": "Charlie", "address": "charlie@example.com" } ],
+    "cc":   [ { "name": "Dana",    "address": "dana@example.com"  } ]
+  }
+}
+###
+
+### POST 3 request to use the MailKit plugin (username slug from address)
+POST https://localhost:7228/mailkit
+Content-Type: application/json
+
+{
+  "template": "Hello @\u007B\u007B#MimeMessage#To.First.UserName#MimeMessage#\u007D\u007D! Your inbox at \u007B\u007B#MimeMessage#To.First#MimeMessage#\u007D\u007D is configured.",
+  "message": {
+    "subject": "Account ready",
+    "from": [ { "name": "Onboarding", "address": "onboarding@acme.test" } ],
+    "to":   [ { "name": "Sam Smith",  "address": "sam.smith@example.com" } ]
+  }
+}
+###
 ###
