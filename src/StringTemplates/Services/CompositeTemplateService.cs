@@ -1,4 +1,4 @@
-namespace StringTemplates.Services;
+namespace StringTemplates;
 
 /// <summary>
 /// <see cref="ITemplateService"/> implementation that combines multiple <see cref="ITemplatePlugin"/> instances.

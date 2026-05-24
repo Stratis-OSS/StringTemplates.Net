@@ -1,4 +1,4 @@
-namespace StringTemplates.Services;
+namespace StringTemplates;
 
 /// <summary>
 /// Interface used internally to inject multiple string template plugins into a single <see cref="ITemplateService"/>.

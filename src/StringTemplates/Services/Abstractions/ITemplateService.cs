@@ -1,6 +1,6 @@
 using System.Text.RegularExpressions;
 
-namespace StringTemplates.Services;
+namespace StringTemplates;
 
 /// <inheritdoc cref="ITemplateService"/>
 /// <typeparam name="TInput">Optional input parameter that can be used to provide context for value retrieval.</typeparam>

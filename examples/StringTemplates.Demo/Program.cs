@@ -1,7 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using StringTemplates.Extensions;
-using StringTemplates.Plugins.Configuration;
-using StringTemplates.Services;
+using StringTemplates.Plugins;
 
 var builder = WebApplication.CreateBuilder(args);
 

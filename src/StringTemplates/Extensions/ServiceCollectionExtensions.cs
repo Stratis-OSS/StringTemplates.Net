@@ -1,10 +1,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
-using StringTemplates.Models.Options;
-using StringTemplates.Services;
-using StringTemplates.Services.Plugins;
 
-namespace StringTemplates.Extensions;
+namespace StringTemplates;
 
 public static class ServiceCollectionExtensions
 {

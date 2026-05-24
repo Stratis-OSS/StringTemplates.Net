@@ -1,6 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
 
-namespace StringTemplates.Models.Options;
+namespace StringTemplates;
 
 /// <summary>
 /// Options exposed by AddStringTemplates. Intentionally only allows AddPlugins.

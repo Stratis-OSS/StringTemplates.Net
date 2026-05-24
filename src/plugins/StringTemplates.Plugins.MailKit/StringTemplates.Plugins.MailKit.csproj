@@ -17,7 +17,7 @@
     <Description>The best way to handle templates and replace placeholders inside of MailKit's messages.</Description>
     <PackageTags>open-source oss csharp dotnet strings templates placeholders environment config</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageReleaseNotes>
+    <PackageReleaseNotes>* Created "MimeMessageTemplatePlugin"
     </PackageReleaseNotes>
 
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -29,6 +29,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="MailKit" />
     <PackageReference Include="StringTemplates"/>
   </ItemGroup>
 

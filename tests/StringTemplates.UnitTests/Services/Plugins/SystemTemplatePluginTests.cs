@@ -1,6 +1,3 @@
-using Shouldly;
-using StringTemplates.Services;
-using StringTemplates.Services.Plugins;
 using System.Globalization;
 using System.Text.RegularExpressions;
 

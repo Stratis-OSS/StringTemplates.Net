@@ -18,6 +18,7 @@
     <PackageTags>open-source oss csharp dotnet strings templates placeholders</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageReleaseNotes>* Updated dependencies to latest versions.
+      * Moved all references to "StringTemplates" root namespace.
     </PackageReleaseNotes>
 
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
