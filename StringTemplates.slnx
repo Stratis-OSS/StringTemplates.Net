@@ -2,19 +2,42 @@
   <Folder Name="/examples/">
     <Project Path="examples/StringTemplates.Demo/StringTemplates.Demo.csproj" />
   </Folder>
-  <Folder Name="/solution/">
+  <Folder Name="/Solution Items/">
     <File Path=".editorconfig" />
     <File Path="build-core.sh" />
     <File Path="build-plugin.sh" />
     <File Path="Directory.Build.props" />
     <File Path="Directory.Packages.props" />
   </Folder>
-  <Folder Name="/solution/git/">
+  <Folder Name="/Solution Items/agents/">
+    <File Path=".agents/skills" />
+    <File Path="AGENTS.md" />
+  </Folder>
+  <Folder Name="/Solution Items/agents/claude/">
+    <File Path=".claude/settings.json" />
+    <File Path=".claude/settings.local.json" />
+    <File Path=".claude/skills" />
+    <File Path=".claude/statusline.py" />
+    <File Path="CLAUDE.md" />
+  </Folder>
+  <Folder Name="/Solution Items/agents/claude/hooks/">
+    <File Path=".claude/hooks/block-local-files-commit.py" />
+    <File Path=".claude/hooks/block-package-version.py" />
+  </Folder>
+  <Folder Name="/Solution Items/agents/skills/"/>
+  <Folder Name="/Solution Items/agents/skills/skill-creation/">
+    <File Path="skills/skill-creation/SKILL.md" />
+  </Folder>
+  <Folder Name="/Solution Items/agents/skills/solution/">
+    <File Path="skills/solution/SKILL.md" />
+  </Folder>
+  <Folder Name="/Solution Items/git/">
     <File Path=".gitignore" />
     <File Path=".github/CODEOWNERS" />
+    <File Path="copilot-instructions.md" />
     <File Path="README.md" />
   </Folder>
-  <Folder Name="/solution/git/workflows/">
+  <Folder Name="/Solution Items/git/workflows/">
     <File Path=".github/workflows/CI.yml" />
   </Folder>
   <Folder Name="/src/">
