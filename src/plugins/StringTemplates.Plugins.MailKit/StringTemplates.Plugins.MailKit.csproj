@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <PackageId>StringTemplates</PackageId>
-    <Title>StringTemplates</Title>
+    <PackageId>StringTemplates.MailKit</PackageId>
+    <Title>StringTemplates.MailKit</Title>
     <Version>10.0.8</Version>
 
     <Authors>Stratis-Dermanoutsos</Authors>
@@ -14,22 +14,23 @@
     <PackageProjectUrl>https://github.com/Stratis-OSS/StringTemplates.Net</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Stratis-OSS/StringTemplates.Net</RepositoryUrl>
 
-    <Description>The best way to handle templates and replace placeholders.</Description>
-    <PackageTags>open-source oss csharp dotnet strings templates placeholders</PackageTags>
+    <Description>The best way to handle templates and replace placeholders inside of MailKit's messages.</Description>
+    <PackageTags>open-source oss csharp dotnet strings templates placeholders mailkit smtp</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageReleaseNotes>* Updated dependencies to latest versions.
-      * Moved all references to "StringTemplates" root namespace.
+    <PackageReleaseNotes>* Created "MimeMessageTemplatePlugin"
     </PackageReleaseNotes>
 
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
+    <None Include="../../../LICENSE" Pack="true" PackagePath="/"/>
+    <None Include="../../../README.md" Pack="true" PackagePath="/"/>
   </ItemGroup>
 
-<ItemGroup>
-  <None Include="../../LICENSE" Pack="true" PackagePath="/"/>
-  <None Include="../../README.md" Pack="true" PackagePath="/"/>
-</ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="MailKit" />
+    <PackageReference Include="StringTemplates"/>
+  </ItemGroup>
+
 </Project>

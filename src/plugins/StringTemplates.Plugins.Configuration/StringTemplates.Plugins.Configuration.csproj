@@ -3,7 +3,7 @@
   <PropertyGroup>
     <PackageId>StringTemplates.Configuration</PackageId>
     <Title>StringTemplates.Configuration</Title>
-    <Version>10.0.1</Version>
+    <Version>10.0.8</Version>
 
     <Authors>Stratis-Dermanoutsos</Authors>
     <Company>Stratis-OSS</Company>
@@ -18,6 +18,7 @@
     <PackageTags>open-source oss csharp dotnet strings templates placeholders environment config</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageReleaseNotes>* Updated dependencies to latest versions.
+      * Moved all references to "StringTemplates.Plugins" root namespace.
     </PackageReleaseNotes>
 
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>

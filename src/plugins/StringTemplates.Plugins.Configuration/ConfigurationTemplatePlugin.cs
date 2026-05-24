@@ -1,7 +1,7 @@
 using Microsoft.Extensions.Configuration;
-using StringTemplates.Services;
 
-namespace StringTemplates.Plugins.Configuration;
+// ReSharper disable once CheckNamespace
+namespace StringTemplates.Plugins;
 
 /// <summary>
 /// <see cref="ITemplatePlugin"/> implementation for handling configuration values inside of template strings.

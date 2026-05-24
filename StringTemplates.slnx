@@ -1,35 +1,64 @@
 ﻿<Solution>
   <Folder Name="/examples/">
-    <Project Path="examples\StringTemplates.Demo\StringTemplates.Demo.csproj" Type="C#" />
+    <Project Path="examples/StringTemplates.Demo/StringTemplates.Demo.csproj" />
   </Folder>
-  <Folder Name="/solution/">
+  <Folder Name="/Solution Items/">
     <File Path=".editorconfig" />
     <File Path="build-core.sh" />
     <File Path="build-plugin.sh" />
     <File Path="Directory.Build.props" />
     <File Path="Directory.Packages.props" />
-  </Folder>
-  <Folder Name="/solution/git/">
-    <File Path=".gitignore" />
-    <File Path=".github/CODEOWNERS" />
+    <File Path="Makefile" />
     <File Path="README.md" />
   </Folder>
-  <Folder Name="/solution/git/workflows/">
+  <Folder Name="/Solution Items/agents/">
+    <File Path=".agents/skills" />
+    <File Path="AGENTS.md" />
+  </Folder>
+  <Folder Name="/Solution Items/agents/claude/">
+    <File Path=".claude/settings.json" />
+    <File Path=".claude/settings.local.json" />
+    <File Path=".claude/skills" />
+    <File Path=".claude/statusline.py" />
+    <File Path="CLAUDE.md" />
+  </Folder>
+  <Folder Name="/Solution Items/agents/claude/hooks/">
+    <File Path=".claude/hooks/block-local-files-commit.py" />
+    <File Path=".claude/hooks/block-package-version.py" />
+  </Folder>
+  <Folder Name="/Solution Items/agents/skills/"/>
+  <Folder Name="/Solution Items/agents/skills/skill-creation/">
+    <File Path="skills/skill-creation/SKILL.md" />
+  </Folder>
+  <Folder Name="/Solution Items/agents/skills/solution/">
+    <File Path="skills/solution/SKILL.md" />
+  </Folder>
+  <Folder Name="/Solution Items/git/">
+    <File Path=".gitignore" />
+    <File Path=".github/CODEOWNERS" />
+    <File Path=".github/copilot-instructions.md" />
+    <File Path="README.md" />
+  </Folder>
+  <Folder Name="/Solution Items/git/workflows/">
     <File Path=".github/workflows/CI.yml" />
   </Folder>
   <Folder Name="/src/">
-    <Project Path="src\StringTemplates\StringTemplates.csproj" Type="C#" />
+    <Project Path="src/StringTemplates/StringTemplates.csproj" />
   </Folder>
   <Folder Name="/src/plugins/">
-    <Project Path="src\plugins\StringTemplates.Plugins.Configuration\StringTemplates.Plugins.Configuration.csproj" Type="C#" />
+    <Project Path="src/plugins/StringTemplates.Plugins.MailKit/StringTemplates.Plugins.MailKit.csproj" />
+    <Project Path="src/plugins/StringTemplates.Plugins.Configuration/StringTemplates.Plugins.Configuration.csproj" />
   </Folder>
   <Folder Name="/tests/">
-    <Project Path="tests\StringTemplates.IntegrationTests.Common\StringTemplates.IntegrationTests.Common.csproj" Type="C#" />
-    <Project Path="tests\StringTemplates.IntegrationTests\StringTemplates.IntegrationTests.csproj" Type="C#" />
-    <Project Path="tests\StringTemplates.UnitTests\StringTemplates.UnitTests.csproj" Type="C#" />
+    <Project Path="tests/StringTemplates.IntegrationTests.Common/StringTemplates.IntegrationTests.Common.csproj" />
+    <Project Path="tests/StringTemplates.IntegrationTests/StringTemplates.IntegrationTests.csproj" />
+    <Project Path="tests/StringTemplates.UnitTests/StringTemplates.UnitTests.csproj" />
   </Folder>
   <Folder Name="/tests/plugins/" />
   <Folder Name="/tests/plugins/Configuration/">
-    <Project Path="tests\plugins\Configuration\StringTemplates.Plugins.Configuration.UnitTests\StringTemplates.Plugins.Configuration.UnitTests.csproj" Type="C#" />
+    <Project Path="tests/plugins/Configuration/StringTemplates.Plugins.Configuration.UnitTests/StringTemplates.Plugins.Configuration.UnitTests.csproj" />
+  </Folder>
+  <Folder Name="/tests/plugins/MailKit/">
+    <Project Path="tests/plugins/MailKit/StringTemplates.Plugins.MailKit.UnitTests/StringTemplates.Plugins.MailKit.UnitTests.csproj" />
   </Folder>
 </Solution>

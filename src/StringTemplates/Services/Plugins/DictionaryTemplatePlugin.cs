@@ -1,4 +1,4 @@
-namespace StringTemplates.Services.Plugins;
+namespace StringTemplates;
 
 /// <summary>
 /// <see cref="ITemplatePlugin{T}"/> implementation for handling a <see cref="Dictionary{TKey,TValue}"/>'s values inside of template strings.

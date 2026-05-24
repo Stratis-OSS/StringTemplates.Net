@@ -1,6 +1,6 @@
 using System.Globalization;
 
-namespace StringTemplates.Services.Plugins;
+namespace StringTemplates;
 
 /// <summary>
 /// <see cref="ITemplatePlugin"/> implementation for handling systemic values inside of template strings.

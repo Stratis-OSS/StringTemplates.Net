@@ -1,6 +1,4 @@
 using System.Globalization;
-using Shouldly;
-using StringTemplates.Services.Plugins;
 
 namespace StringTemplates.UnitTests.Services.Plugins;
 

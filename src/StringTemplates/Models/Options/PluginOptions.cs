@@ -1,8 +1,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
-using StringTemplates.Services;
 
-namespace StringTemplates.Models.Options;
+namespace StringTemplates;
 
 /// <summary>
 /// Options within AddPlugins. Only exposes plugin registration methods.
