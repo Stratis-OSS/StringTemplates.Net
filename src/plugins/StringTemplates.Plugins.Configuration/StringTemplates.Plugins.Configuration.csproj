@@ -3,7 +3,7 @@
   <PropertyGroup>
     <PackageId>StringTemplates.Configuration</PackageId>
     <Title>StringTemplates.Configuration</Title>
-    <Version>10.0.1</Version>
+    <Version>10.0.8</Version>
 
     <Authors>Stratis-Dermanoutsos</Authors>
     <Company>Stratis-OSS</Company>
