@@ -15,7 +15,7 @@
     <RepositoryUrl>https://github.com/Stratis-OSS/StringTemplates.Net</RepositoryUrl>
 
     <Description>The best way to handle templates and replace placeholders inside of MailKit's messages.</Description>
-    <PackageTags>open-source oss csharp dotnet strings templates placeholders environment config</PackageTags>
+    <PackageTags>open-source oss csharp dotnet strings templates placeholders mailkit smtp</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageReleaseNotes>* Created "MimeMessageTemplatePlugin"
     </PackageReleaseNotes>
