@@ -22,6 +22,7 @@
       "Bash(grep*)",
       "Bash(rg*)",
       "Bash(tree*)",
+      "WebFetch(domain:github.com)",
       "WebSearch"
     ]
   },

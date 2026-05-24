@@ -34,7 +34,7 @@
   <Folder Name="/Solution Items/git/">
     <File Path=".gitignore" />
     <File Path=".github/CODEOWNERS" />
-    <File Path="copilot-instructions.md" />
+    <File Path=".github/copilot-instructions.md" />
     <File Path="README.md" />
   </Folder>
   <Folder Name="/Solution Items/git/workflows/">
