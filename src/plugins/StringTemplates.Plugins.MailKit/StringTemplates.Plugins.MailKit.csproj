@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <PackageId>StringTemplates.MailKit</PackageId>
+    <Title>StringTemplates.MailKit</Title>
+    <Version>10.0.8</Version>
+
+    <Authors>Stratis-Dermanoutsos</Authors>
+    <Company>Stratis-OSS</Company>
+
+    <Copyright>Copyright © Stratis Dermanoutsos 2026</Copyright>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+
+    <PackageProjectUrl>https://github.com/Stratis-OSS/StringTemplates.Net</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Stratis-OSS/StringTemplates.Net</RepositoryUrl>
+
+    <Description>The best way to handle templates and replace placeholders inside of MailKit's messages.</Description>
+    <PackageTags>open-source oss csharp dotnet strings templates placeholders environment config</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageReleaseNotes>
+    </PackageReleaseNotes>
+
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="../../../LICENSE" Pack="true" PackagePath="/"/>
+    <None Include="../../../README.md" Pack="true" PackagePath="/"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="StringTemplates"/>
+  </ItemGroup>
+
+</Project>
