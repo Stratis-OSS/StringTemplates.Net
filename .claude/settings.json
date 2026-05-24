@@ -22,6 +22,7 @@
       "Bash(grep*)",
       "Bash(rg*)",
       "Bash(tree*)",
+      "Skill(solution)",
       "WebFetch(domain:github.com)",
       "WebSearch"
     ]

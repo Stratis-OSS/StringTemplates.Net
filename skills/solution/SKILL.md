@@ -15,7 +15,8 @@ StringTemplates.slnx        Solution file (XML-based slnx format)
 Directory.Build.props       Shared MSBuild settings for every project
 Directory.Packages.props    Central NuGet package versions
 build-core.sh               Cleans, builds, and packs the core library
-build-plugin.sh             Cleans, builds, and packs a plugin (edit the path inside)
+build-plugin.sh             Cleans, builds, and packs a plugin (takes the plugin name as an argument)
+Makefile                    Runs build-core.sh and build-plugin.sh for every plugin under src/plugins/
 
 src/
   StringTemplates/                  The core library (ships as `StringTemplates`)
@@ -131,10 +132,17 @@ dotnet test StringTemplates.slnx
 
 # Pack a single shippable project locally
 ./build-core.sh                                  # core library
-./build-plugin.sh                                # edit the cd path inside for other plugins
+./build-plugin.sh <PluginName>                   # one plugin, e.g. ./build-plugin.sh Configuration
+
+# Pack core + every plugin under src/plugins/ via the Makefile
+make                                             # = make all = make core + make plugins
+make core                                        # just the core library
+make plugins                                     # every plugin
+make <PluginName>                                # one plugin by name
+make list                                        # show the discovered targets
 ```
 
-`build-core.sh` and `build-plugin.sh` are the only scripts in the repo — they each `cd` into one project, `dotnet clean`, then `dotnet build -c Release` and `dotnet pack -c Release`. If you add a new plugin you intend to publish manually, either duplicate `build-plugin.sh` per plugin or parameterise the path.
+The two shell scripts each `cd` into one project, `dotnet clean`, then `dotnet build -c Release` and `dotnet pack -c Release`. `build-plugin.sh` takes the plugin's short name (the suffix after `StringTemplates.Plugins.`) and resolves the path itself. The `Makefile` discovers plugins automatically from `src/plugins/StringTemplates.Plugins.*` — a new plugin folder is picked up with no further wiring.
 
 ## How to scaffold a new plugin package
 

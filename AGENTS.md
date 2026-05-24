@@ -11,7 +11,8 @@ StringTemplates.slnx        Solution file (slnx format)
 Directory.Build.props       Shared MSBuild settings for every project
 Directory.Packages.props    Central NuGet package versions
 build-core.sh               Cleans, builds, and packs the core library
-build-plugin.sh             Cleans, builds, and packs a plugin (edit the path inside)
+build-plugin.sh             Cleans, builds, and packs a plugin (takes the plugin name as an argument)
+Makefile                    Runs build-core.sh and build-plugin.sh for every plugin under src/plugins/
 
 src/
   StringTemplates/                  Core library (ships as `StringTemplates`)
@@ -42,7 +43,8 @@ All commands run from the repo root and target `StringTemplates.slnx`.
 - Run a single test project: `dotnet test tests/<path>/<Project>.csproj`
 - Run the demo: `dotnet run --project examples/StringTemplates.Demo/StringTemplates.Demo.csproj`
 - Pack the core library locally: `./build-core.sh`
-- Pack a plugin locally: `./build-plugin.sh` (edit the `cd` path inside to target a different plugin)
+- Pack a plugin locally: `./build-plugin.sh <PluginName>` (e.g. `./build-plugin.sh Configuration`)
+- Pack everything (core + every plugin): `make` (or `make core`, `make plugins`, `make <PluginName>`)
 
 Shippable projects (core and plugins) set `<GeneratePackageOnBuild>true</GeneratePackageOnBuild>`, so a Release build produces `.nupkg` artifacts automatically.
 
