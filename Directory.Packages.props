@@ -16,8 +16,6 @@
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.5.1" />
     <!-- Shouldly -->
     <PackageVersion Include="Shouldly" Version="4.3.0" />
-    <!-- StringTemplates -->
-    <PackageVersion Include="StringTemplates" Version="10.0.8" />
     <!-- xUnit -->
     <PackageVersion Include="xunit" Version="2.9.3" />
     <PackageVersion Include="xunit.runner.visualstudio" Version="3.1.5" />

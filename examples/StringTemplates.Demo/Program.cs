@@ -1,3 +1,4 @@
+using System.Reflection;
 using Microsoft.AspNetCore.Mvc;
 using MimeKit;
 using StringTemplates;
@@ -7,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddStringTemplates(options => options.AddPlugins(opts => opts
-    .AddPluginSingleton<ConfigurationTemplatePlugin>()
+    .AddPluginsFrom(Assembly.GetExecutingAssembly())
     .AddPluginSingleton<MimeMessageTemplatePlugin, MimeMessage>()));
 
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
@@ -28,11 +29,11 @@ app.MapPost("general", (
     Results.Ok(templateService.ReplacePlaceholders(request.Template)));
 app.MapPost("dictionary", (
         [FromBody] DictionaryRequest request,
-        [FromServices] ITemplateService<Dictionary<string, object>> templateService) =>
+        [FromServices] ITemplateService templateService) =>
     Results.Ok(templateService.ReplacePlaceholders(request.Template, request.Model)));
 app.MapPost("mailkit", (
         [FromBody] MailKitRequest request,
-        [FromServices] ITemplateService<MimeMessage> templateService) =>
+        [FromServices] ITemplateService templateService) =>
     Results.Ok(templateService.ReplacePlaceholders(request.Template, request.Message.ToMimeMessage())));
 
 app.UseHttpsRedirection();

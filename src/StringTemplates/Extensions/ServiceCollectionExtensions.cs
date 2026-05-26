@@ -27,9 +27,7 @@ public static class ServiceCollectionExtensions
             configure?.Invoke(opts);
 
             // The only exposed service
-            services
-                .AddScoped<ITemplateService, CompositeTemplateService>()
-                .AddScoped(typeof(ITemplateService<>), typeof(CompositeTemplateService<>));
+            services.AddScoped<ITemplateService, TemplateService>();
 
             return services;
         }

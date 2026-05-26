@@ -3,7 +3,7 @@
   <PropertyGroup>
     <PackageId>StringTemplates.MailKit</PackageId>
     <Title>StringTemplates.MailKit</Title>
-    <Version>10.0.8</Version>
+    <Version>10.1.0</Version>
 
     <Authors>Stratis-Dermanoutsos</Authors>
     <Company>Stratis-OSS</Company>
@@ -30,7 +30,10 @@
 
   <ItemGroup>
     <PackageReference Include="MailKit" />
-    <PackageReference Include="StringTemplates"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\StringTemplates\StringTemplates.csproj" />
   </ItemGroup>
 
 </Project>
