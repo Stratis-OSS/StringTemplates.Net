@@ -3,7 +3,7 @@
   <PropertyGroup>
     <PackageId>StringTemplates.Configuration</PackageId>
     <Title>StringTemplates.Configuration</Title>
-    <Version>10.0.8</Version>
+    <Version>10.1.0</Version>
 
     <Authors>Stratis-Dermanoutsos</Authors>
     <Company>Stratis-OSS</Company>
@@ -17,8 +17,7 @@
     <Description>The best way to handle templates and replace placeholders using IConfiguration.</Description>
     <PackageTags>open-source oss csharp dotnet strings templates placeholders environment config</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageReleaseNotes>* Updated dependencies to latest versions.
-      * Moved all references to "StringTemplates.Plugins" root namespace.
+    <PackageReleaseNotes>* Updated to target the redesigned "ITemplatePlugin" abstraction in StringTemplates 10.1.0.
     </PackageReleaseNotes>
 
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -31,7 +30,11 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" />
-    <PackageReference Include="StringTemplates"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="StringTemplates" />
+<!--    <ProjectReference Include="..\..\StringTemplates\StringTemplates.csproj" />-->
   </ItemGroup>
 
 </Project>

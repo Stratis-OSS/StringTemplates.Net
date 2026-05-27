@@ -1,3 +1,4 @@
+using System.Reflection;
 using Microsoft.AspNetCore.Mvc;
 using MimeKit;
 using StringTemplates;
@@ -7,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddStringTemplates(options => options.AddPlugins(opts => opts
-    .AddPluginSingleton<ConfigurationTemplatePlugin>()
+    .AddPluginsFrom(Assembly.GetExecutingAssembly())
     .AddPluginSingleton<MimeMessageTemplatePlugin, MimeMessage>()));
 
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
@@ -28,12 +29,16 @@ app.MapPost("general", (
     Results.Ok(templateService.ReplacePlaceholders(request.Template)));
 app.MapPost("dictionary", (
         [FromBody] DictionaryRequest request,
-        [FromServices] ITemplateService<Dictionary<string, object>> templateService) =>
+        [FromServices] ITemplateService templateService) =>
     Results.Ok(templateService.ReplacePlaceholders(request.Template, request.Model)));
 app.MapPost("mailkit", (
         [FromBody] MailKitRequest request,
-        [FromServices] ITemplateService<MimeMessage> templateService) =>
+        [FromServices] ITemplateService templateService) =>
     Results.Ok(templateService.ReplacePlaceholders(request.Template, request.Message.ToMimeMessage())));
+app.MapPost("combined", (
+        [FromBody] CombinedRequest request,
+        [FromServices] ITemplateService templateService) =>
+    Results.Ok(templateService.ReplacePlaceholders(request.Template, request.Message.ToMimeMessage(), request.Model)));
 
 app.UseHttpsRedirection();
 
@@ -45,6 +50,7 @@ public partial class Program;
 internal record SystemRequest(string Template);
 internal record DictionaryRequest(string Template, Dictionary<string, object> Model);
 internal record MailKitRequest(string Template, MailKitMessage Message);
+internal record CombinedRequest(string Template, MailKitMessage Message, Dictionary<string, object> Model);
 internal record MailKitAddress(string Name, string Address);
 internal record MailKitMessage(
     string? Subject,

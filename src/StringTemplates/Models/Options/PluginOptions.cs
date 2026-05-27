@@ -1,3 +1,4 @@
+using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 
@@ -38,6 +39,38 @@ public sealed class PluginOptions
         return this;
     }
 
-    // TODO: scan/assembly-based bulk registration (optional)
-    // public PluginOptions AddPluginsFrom(params Assembly[] assemblies) { ... }
+    /// <summary>
+    /// Scans the given assemblies for concrete <see cref="ITemplatePlugin"/> and
+    /// <see cref="ITemplatePlugin{TInput}"/> implementations and registers each one as
+    /// a singleton against every plugin interface it implements.
+    /// </summary>
+    /// <param name="assemblies">The assemblies to scan. Use <see cref="Assembly.GetExecutingAssembly"/> or similar.</param>
+    public PluginOptions AddPluginsFrom(params Assembly[] assemblies)
+    {
+        foreach (var assembly in assemblies)
+        {
+            foreach (var type in assembly.GetTypes())
+            {
+                if (type.IsAbstract || !type.IsClass)
+                {
+                    continue;
+                }
+
+                if (typeof(ITemplatePlugin).IsAssignableFrom(type))
+                {
+                    Services.TryAddEnumerable(ServiceDescriptor.Singleton(typeof(ITemplatePlugin), type));
+                }
+
+                foreach (var iface in type.GetInterfaces())
+                {
+                    if (iface.IsGenericType && iface.GetGenericTypeDefinition() == typeof(ITemplatePlugin<>))
+                    {
+                        Services.TryAddEnumerable(ServiceDescriptor.Singleton(iface, type));
+                    }
+                }
+            }
+        }
+
+        return this;
+    }
 }

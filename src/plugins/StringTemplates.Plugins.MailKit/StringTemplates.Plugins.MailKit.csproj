@@ -3,7 +3,7 @@
   <PropertyGroup>
     <PackageId>StringTemplates.MailKit</PackageId>
     <Title>StringTemplates.MailKit</Title>
-    <Version>10.0.8</Version>
+    <Version>10.1.0</Version>
 
     <Authors>Stratis-Dermanoutsos</Authors>
     <Company>Stratis-OSS</Company>
@@ -17,7 +17,7 @@
     <Description>The best way to handle templates and replace placeholders inside of MailKit's messages.</Description>
     <PackageTags>open-source oss csharp dotnet strings templates placeholders mailkit smtp</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageReleaseNotes>* Created "MimeMessageTemplatePlugin"
+    <PackageReleaseNotes>* Updated to target the redesigned "ITemplatePlugin&lt;TInput&gt;" abstraction in StringTemplates 10.1.0.
     </PackageReleaseNotes>
 
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -30,7 +30,11 @@
 
   <ItemGroup>
     <PackageReference Include="MailKit" />
-    <PackageReference Include="StringTemplates"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="StringTemplates" />
+<!--    <ProjectReference Include="..\..\StringTemplates\StringTemplates.csproj" />-->
   </ItemGroup>
 
 </Project>
