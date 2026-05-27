@@ -17,8 +17,10 @@
     <Description>The best way to handle templates and replace placeholders.</Description>
     <PackageTags>open-source oss csharp dotnet strings templates placeholders</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageReleaseNotes>* Updated dependencies to latest versions.
-      * Moved all references to "StringTemplates" root namespace.
+    <PackageReleaseNotes>* Decoupled "ITemplatePlugin" from "ITemplateService". Plugins now own their "PlaceholderTag", regex and "GetValueOrDefault" lookup.
+      * Simplified "ITemplateService" to a single "ReplacePlaceholders(string?, params object?[])" entry point that dispatches to every registered plugin, including typed "ITemplatePlugin&lt;TInput&gt;" plugins matched by each input's runtime type.
+      * Removed "CompositeTemplateService" in favor of the new DI-driven "TemplateService" with cached typed-plugin lookups.
+      * Added "PluginOptions.AddPluginsFrom(params Assembly[])" for assembly-scan plugin registration.
     </PackageReleaseNotes>
 
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>

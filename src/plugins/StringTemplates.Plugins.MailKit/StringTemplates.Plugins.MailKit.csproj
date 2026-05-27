@@ -17,7 +17,7 @@
     <Description>The best way to handle templates and replace placeholders inside of MailKit's messages.</Description>
     <PackageTags>open-source oss csharp dotnet strings templates placeholders mailkit smtp</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageReleaseNotes>* Created "MimeMessageTemplatePlugin"
+    <PackageReleaseNotes>* Updated to target the redesigned "ITemplatePlugin&lt;TInput&gt;" abstraction in StringTemplates 10.1.0.
     </PackageReleaseNotes>
 
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>

@@ -17,8 +17,7 @@
     <Description>The best way to handle templates and replace placeholders using IConfiguration.</Description>
     <PackageTags>open-source oss csharp dotnet strings templates placeholders environment config</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageReleaseNotes>* Updated dependencies to latest versions.
-      * Moved all references to "StringTemplates.Plugins" root namespace.
+    <PackageReleaseNotes>* Updated to target the redesigned "ITemplatePlugin" abstraction in StringTemplates 10.1.0.
     </PackageReleaseNotes>
 
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
